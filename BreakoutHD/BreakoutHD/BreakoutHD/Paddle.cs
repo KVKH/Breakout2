@@ -72,5 +72,6 @@ namespace BreakoutHD
      texture.Width,
      texture.Height);
  }
+
  }
 }

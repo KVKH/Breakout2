@@ -19,10 +19,21 @@ namespace BreakoutHD
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
+        Paddle paddle;
+        Ammo ammo;
+
+        Rectangle screenRectangle;
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+            screenRectangle = new Rectangle(
+            0,
+            0,
+            graphics.PreferredBackBufferWidth,
+            graphics.PreferredBackBufferHeight);
+
         }
 
         /// <summary>
@@ -47,8 +58,20 @@ namespace BreakoutHD
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            // TODO: use this.Content to load your game content here
+            Texture2D tempTexture = Content.Load<Texture2D>("paddle");
+            paddle = new Paddle(tempTexture, screenRectangle);
+
+            tempTexture = Content.Load<Texture2D>("ammo");
+            ammo = new Ammo(tempTexture, screenRectangle);
+
+            StartGame();
         }
+
+        private void StartGame()
+        {
+            paddle.SetInStartPosition();
+            ammo.SetInStartPosition(paddle.GetBounds());
+        }
 
         /// <summary>
         /// UnloadContent will be called once per game and is the place to unload
@@ -68,9 +91,16 @@ namespace BreakoutHD
         {
             // Allows the game to exit
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
-                this.Exit();
+            this.Exit();
 
-            // TODO: Add your update logic here
+            //Updates paddle
+            paddle.Update();
+
+            //Updates ammo
+            ammo.Update();
+            ammo.PaddleCollision(paddle.GetBounds());
+            if (ammo.OffBottom())
+                StartGame();
 
             base.Update(gameTime);
         }
@@ -81,9 +111,13 @@ namespace BreakoutHD
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.Black);
 
-            // TODO: Add your drawing code here
+            spriteBatch.Begin();
+            paddle.Draw(spriteBatch);
+            ammo.Draw(spriteBatch);
+
+            spriteBatch.End();
 
             base.Draw(gameTime);
         }
