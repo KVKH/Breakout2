@@ -11,9 +11,6 @@ using Microsoft.Xna.Framework.Media;
 
 namespace BreakoutHD
 {
-    /// <summary>
-    /// This is the main type for your game
-    /// </summary>
     public class Game1 : Microsoft.Xna.Framework.Game
     {
         GraphicsDeviceManager graphics;
@@ -22,12 +19,22 @@ namespace BreakoutHD
         Paddle paddle;
         Ammo ammo;
 
-        Rectangle screenRectangle;
+        Rectangle screenRectangle;
+        Texture2D backgroundTexture;
+
+        int bricksWide = 10;
+        int bricksHigh = 5;
+        Texture2D brickImage;
+        Brick[,] bricks;
 
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+
+            graphics.PreferredBackBufferWidth = 1920;
+            graphics.PreferredBackBufferHeight = 1080;
+
             screenRectangle = new Rectangle(
             0,
             0,
@@ -36,33 +43,32 @@ namespace BreakoutHD
 
         }
 
-        /// <summary>
-        /// Allows the game to perform any initialization it needs to before starting to run.
-        /// This is where it can query for any required services and load any non-graphic
-        /// related content.  Calling base.Initialize will enumerate through any components
-        /// and initialize them as well.
-        /// </summary>
+        
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
+            graphics.IsFullScreen = true;
+            graphics.ApplyChanges();
+            Window.Title = "Breakout HD";
+            IsMouseVisible = false;
 
             base.Initialize();
         }
 
-        /// <summary>
-        /// LoadContent will be called once per game and is the place to load
-        /// all of your content.
-        /// </summary>
+        
         protected override void LoadContent()
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
+
+            backgroundTexture = Content.Load<Texture2D>("background");
 
             Texture2D tempTexture = Content.Load<Texture2D>("paddle");
             paddle = new Paddle(tempTexture, screenRectangle);
 
             tempTexture = Content.Load<Texture2D>("ammo");
             ammo = new Ammo(tempTexture, screenRectangle);
+
+            brickImage = Content.Load<Texture2D>("brick");
 
             StartGame();
         }
@@ -71,49 +77,88 @@ namespace BreakoutHD
         {
             paddle.SetInStartPosition();
             ammo.SetInStartPosition(paddle.GetBounds());
+
+            bricks = new Brick[bricksWide, bricksHigh];
+
+            for (int y = 0; y < bricksHigh; y++)
+            {
+                Color tint = Color.White;
+
+                switch (y)
+                {
+                    case 0:
+                        tint = Color.Crimson;
+                        break;
+                    case 1:
+                        tint = Color.Gold;
+                        break;
+                    case 2:
+                        tint = Color.LightGreen;
+                        break;
+                    case 3:
+                        tint = Color.Cyan;
+                        break;
+                    case 4:
+                        tint = Color.RoyalBlue;
+                        break;
+                }
+
+                for (int x = 0; x < bricksWide; x++)
+                {
+                    bricks[x, y] = new Brick(
+                        brickImage,
+                        new Rectangle(
+                            x * brickImage.Width,
+                            y * brickImage.Height,
+                            brickImage.Width,
+                            brickImage.Height),
+                        tint);
+                }
+            }
         }
 
-        /// <summary>
-        /// UnloadContent will be called once per game and is the place to unload
-        /// all content.
-        /// </summary>
         protected override void UnloadContent()
         {
-            // TODO: Unload any non ContentManager content here
         }
 
-        /// <summary>
-        /// Allows the game to run logic such as updating the world,
-        /// checking for collisions, gathering input, and playing audio.
-        /// </summary>
-        /// <param name="gameTime">Provides a snapshot of timing values.</param>
+        
         protected override void Update(GameTime gameTime)
         {
-            // Allows the game to exit
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
-            this.Exit();
+            if (Keyboard.GetState().IsKeyDown(Keys.Escape))
+                this.Exit();
+            if (Keyboard.GetState().IsKeyDown(Keys.F))
+            {
+                graphics.IsFullScreen = !graphics.IsFullScreen;
+                graphics.ApplyChanges();
+            }
 
-            //Updates paddle
             paddle.Update();
-
-            //Updates ammo
             ammo.Update();
+
+            foreach (Brick brick in bricks)
+            {
+                brick.CheckCollision(ammo);
+            }
             ammo.PaddleCollision(paddle.GetBounds());
+
             if (ammo.OffBottom())
                 StartGame();
 
             base.Update(gameTime);
         }
 
-        /// <summary>
-        /// This is called when the game should draw itself.
-        /// </summary>
-        /// <param name="gameTime">Provides a snapshot of timing values.</param>
+        
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.Black);
 
-            spriteBatch.Begin();
+            spriteBatch.Begin();
+
+            spriteBatch.Draw(backgroundTexture, screenRectangle, Color.White);
+
+            foreach (Brick brick in bricks)
+                brick.Draw(spriteBatch);
+
             paddle.Draw(spriteBatch);
             ammo.Draw(spriteBatch);
 

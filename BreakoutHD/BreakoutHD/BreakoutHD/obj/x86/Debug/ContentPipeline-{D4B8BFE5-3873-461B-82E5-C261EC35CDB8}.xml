@@ -8,7 +8,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\kasperhjo\Desktop\Breakout2\BreakoutHD\BreakoutHD\BreakoutHD\bin\x86\Debug\Content\paddle.xnb</Output>
-      <Time>2016-03-10T15:56:41.9110414+02:00</Time>
+      <Time>2016-03-10T18:48:55.2060414+02:00</Time>
     </Item>
     <Item>
       <Source>ammo.png</Source>
@@ -17,7 +17,25 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\kasperhjo\Desktop\Breakout2\BreakoutHD\BreakoutHD\BreakoutHD\bin\x86\Debug\Content\ammo.xnb</Output>
-      <Time>2016-03-10T15:56:41.8980414+02:00</Time>
+      <Time>2016-03-10T18:50:59.9220414+02:00</Time>
+    </Item>
+    <Item>
+      <Source>brick.png</Source>
+      <Name>brick</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\kasperhjo\Desktop\Breakout2\BreakoutHD\BreakoutHD\BreakoutHD\bin\x86\Debug\Content\brick.xnb</Output>
+      <Time>2016-03-10T18:46:20.7820414+02:00</Time>
+    </Item>
+    <Item>
+      <Source>background.png</Source>
+      <Name>background</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\kasperhjo\Desktop\Breakout2\BreakoutHD\BreakoutHD\BreakoutHD\bin\x86\Debug\Content\background.xnb</Output>
+      <Time>2016-03-10T20:17:11.3289819+02:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

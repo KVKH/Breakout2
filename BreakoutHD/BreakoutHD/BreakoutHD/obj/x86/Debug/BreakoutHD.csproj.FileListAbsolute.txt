@@ -6,3 +6,5 @@ C:\Users\kasperhjo\Desktop\Breakout2\BreakoutHD\BreakoutHD\BreakoutHD\obj\x86\De
 C:\Users\kasperhjo\Desktop\Breakout2\BreakoutHD\BreakoutHD\BreakoutHD\obj\x86\Debug\BreakoutHD.pdb
 C:\Users\kasperhjo\Desktop\Breakout2\BreakoutHD\BreakoutHD\BreakoutHD\bin\x86\Debug\Content\paddle.xnb
 C:\Users\kasperhjo\Desktop\Breakout2\BreakoutHD\BreakoutHD\BreakoutHD\bin\x86\Debug\Content\ammo.xnb
+C:\Users\kasperhjo\Desktop\Breakout2\BreakoutHD\BreakoutHD\BreakoutHD\bin\x86\Debug\Content\brick.xnb
+C:\Users\kasperhjo\Desktop\Breakout2\BreakoutHD\BreakoutHD\BreakoutHD\bin\x86\Debug\Content\background.xnb
