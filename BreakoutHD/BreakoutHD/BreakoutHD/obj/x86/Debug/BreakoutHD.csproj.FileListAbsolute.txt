@@ -1,0 +1,6 @@
+C:\Users\kasperhjo\Desktop\Breakout2\BreakoutHD\BreakoutHD\BreakoutHD\bin\x86\Debug\BreakoutHD.exe
+C:\Users\kasperhjo\Desktop\Breakout2\BreakoutHD\BreakoutHD\BreakoutHD\bin\x86\Debug\BreakoutHD.pdb
+C:\Users\kasperhjo\Desktop\Breakout2\BreakoutHD\BreakoutHD\BreakoutHD\obj\x86\Debug\BreakoutHD.csprojResolveAssemblyReference.cache
+C:\Users\kasperhjo\Desktop\Breakout2\BreakoutHD\BreakoutHD\BreakoutHD\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\kasperhjo\Desktop\Breakout2\BreakoutHD\BreakoutHD\BreakoutHD\obj\x86\Debug\BreakoutHD.exe
+C:\Users\kasperhjo\Desktop\Breakout2\BreakoutHD\BreakoutHD\BreakoutHD\obj\x86\Debug\BreakoutHD.pdb

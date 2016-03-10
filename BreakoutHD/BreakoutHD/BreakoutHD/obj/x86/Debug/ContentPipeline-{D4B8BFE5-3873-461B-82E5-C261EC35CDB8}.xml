@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
+  <Asset Type="Pipeline:BuildItemCollection">
+    <BuildSuccessful>true</BuildSuccessful>
+    <Settings>
+      <ContentProjectGUID>{D4B8BFE5-3873-461B-82E5-C261EC35CDB8}</ContentProjectGUID>
+      <TargetPlatform>Windows</TargetPlatform>
+      <TargetProfile>Reach</TargetProfile>
+      <BuildConfiguration>Debug</BuildConfiguration>
+      <CompressContent>false</CompressContent>
+      <RootDirectory>C:\Users\kasperhjo\Desktop\Breakout2\BreakoutHD\BreakoutHD\BreakoutHDContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\kasperhjo\Desktop\Breakout2\BreakoutHD\BreakoutHD\BreakoutHD\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\kasperhjo\Desktop\Breakout2\BreakoutHD\BreakoutHD\BreakoutHD\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\kasperhjo\Desktop\Breakout2\BreakoutHD\BreakoutHD\BreakoutHD\bin\x86\Debug\Content\</OutputDirectory>
+    </Settings>
+    <Assemblies>
+      <Assembly>
+        <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2014-07-03T07:59:02.9917826+03:00</Value>
+      </Assembly>
+    </Assemblies>
+  </Asset>
+</XnaContent>
