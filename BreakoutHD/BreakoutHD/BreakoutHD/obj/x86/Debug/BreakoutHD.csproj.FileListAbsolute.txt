@@ -8,3 +8,4 @@ C:\Users\kasperhjo\Desktop\Breakout2\BreakoutHD\BreakoutHD\BreakoutHD\bin\x86\De
 C:\Users\kasperhjo\Desktop\Breakout2\BreakoutHD\BreakoutHD\BreakoutHD\bin\x86\Debug\Content\ammo.xnb
 C:\Users\kasperhjo\Desktop\Breakout2\BreakoutHD\BreakoutHD\BreakoutHD\bin\x86\Debug\Content\brick.xnb
 C:\Users\kasperhjo\Desktop\Breakout2\BreakoutHD\BreakoutHD\BreakoutHD\bin\x86\Debug\Content\background.xnb
+C:\Users\kasperhjo\Desktop\Breakout2\BreakoutHD\BreakoutHD\BreakoutHD\bin\x86\Debug\Content\backgroundwin.xnb

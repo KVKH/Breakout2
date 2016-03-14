@@ -24,6 +24,8 @@ namespace BreakoutHD
         Texture2D texture;
         Rectangle screenBounds;
 
+        public int brickcount = 50;
+
         public Rectangle Bounds
         {
             get
@@ -82,10 +84,24 @@ namespace BreakoutHD
         public bool OffBottom()
         {
             if (position.Y > screenBounds.Height)
+            {
+                brickcount = 50;
                 return true;
+            }
             return false;
         }
         
+        public bool victory()
+        {
+            if (brickcount == 0)
+            {
+                brickcount = 50;
+                return true;
+            }
+            else
+                return false;
+        }
+
         public void PaddleCollision(Rectangle paddleLocation)
         {
             Rectangle ammoLocation = new Rectangle(
@@ -103,6 +119,8 @@ namespace BreakoutHD
 
         public void Deflection(Brick brick)
         {
+            brickcount--;
+
             if (!collided)
             {
                 motion.Y *= -1;

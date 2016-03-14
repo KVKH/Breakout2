@@ -27,6 +27,10 @@ namespace BreakoutHD
         Texture2D brickImage;
         Brick[,] bricks;
 
+        Texture2D winjee;
+
+        bool gamewon;
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -46,6 +50,9 @@ namespace BreakoutHD
         
         protected override void Initialize()
         {
+            //FOR DEBUGGING:
+            //graphics.IsFullScreen = false;
+
             graphics.IsFullScreen = true;
             graphics.ApplyChanges();
             Window.Title = "Breakout HD";
@@ -69,6 +76,8 @@ namespace BreakoutHD
             ammo = new Ammo(tempTexture, screenRectangle);
 
             brickImage = Content.Load<Texture2D>("brick");
+
+            winjee = Content.Load<Texture2D>("backgroundwin");
 
             StartGame();
         }
@@ -144,6 +153,12 @@ namespace BreakoutHD
             if (ammo.OffBottom())
                 StartGame();
 
+
+            if(ammo.victory())
+            {
+                gamewon = true;
+            }
+
             base.Update(gameTime);
         }
 
@@ -153,6 +168,11 @@ namespace BreakoutHD
             GraphicsDevice.Clear(Color.Black);
 
             spriteBatch.Begin();
+
+            if (gamewon)
+            {
+                spriteBatch.Draw(winjee, screenRectangle, Color.White);
+            }
 
             spriteBatch.Draw(backgroundTexture, screenRectangle, Color.White);
 
